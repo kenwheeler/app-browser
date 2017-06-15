@@ -33,6 +33,7 @@
 		79CC8C2FA81949A6BD0348BA /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99D52207F9C24B7A90577C08 /* MaterialIcons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9F776E35C3CB440DB193AB15 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B9A7651E24F2B913AD9FA /* Entypo.ttf */; };
+		B268B4A21EF2E7B100C0BA56 /* RCTFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = B268B4A11EF2E7B100C0BA56 /* RCTFrame.m */; };
 		B26D75A91EF1AE1300C3022B /* RCTFrameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B26D75A81EF1AE1300C3022B /* RCTFrameManager.m */; };
 		DD3A376A6D224CDFA2C3BC4F /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 313404E3298E4A6AA98C4279 /* Ionicons.ttf */; };
 		E56696D88F0F4409BFFC2BE9 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDFCFAD6F5414AB89A3FEB2A /* SimpleLineIcons.ttf */; };
@@ -286,6 +287,8 @@
 		99D52207F9C24B7A90577C08 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		AF3510F88F38453199395102 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		B06F4639CB28425F8F383886 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		B268B4A11EF2E7B100C0BA56 /* RCTFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTFrame.m; path = AppBrowser/RCTFrame.m; sourceTree = "<group>"; };
+		B268B4C01EF2E7D000C0BA56 /* RCTFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RCTFrame.h; path = AppBrowser/RCTFrame.h; sourceTree = "<group>"; };
 		B26D758A1EF1ADF300C3022B /* RCTFrameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RCTFrameManager.h; path = AppBrowser/RCTFrameManager.h; sourceTree = "<group>"; };
 		B26D75A81EF1AE1300C3022B /* RCTFrameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTFrameManager.m; path = AppBrowser/RCTFrameManager.m; sourceTree = "<group>"; };
 		B2C0194FF7DA46D18A54AA69 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				B26D758A1EF1ADF300C3022B /* RCTFrameManager.h */,
 				B26D75A81EF1AE1300C3022B /* RCTFrameManager.m */,
+				B268B4A11EF2E7B100C0BA56 /* RCTFrame.m */,
+				B268B4C01EF2E7D000C0BA56 /* RCTFrame.h */,
 			);
 			name = AppBrowser;
 			sourceTree = "<group>";
@@ -934,6 +939,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B26D75A91EF1AE1300C3022B /* RCTFrameManager.m in Sources */,
+				B268B4A21EF2E7B100C0BA56 /* RCTFrame.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);

@@ -46,19 +46,10 @@ class WebViewWrapper extends Component {
       case 'LOCATION':
         this.props.dispatch(updateLocation(e.body.data));
         break;
+      case 'BUNDLE':
+        this.props.onBundle(e.body.data);
+        break;
       default:
-        fetch(`${this.props.location}/${e.body.data}`)
-          .then(res => res.text())
-          .then(data => {
-            console.log(data);
-            try {
-              const script = `(function () { ${data} }())`;
-              let a = eval.call(null, script);
-              console.log(a);
-            } catch (e) {
-              throw new Error(e);
-            }
-          });
         break;
     }
   };
@@ -96,7 +87,7 @@ class WebViewWrapper extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, this.props.style]}>
         <WebView
           ref={r => {
             this.webview = r;
