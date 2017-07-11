@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  Dimensions,
   StyleSheet,
   TextInput,
   View,
@@ -60,6 +61,14 @@ class UrlBar extends Component {
     this.input.blur();
   };
 
+  handleCancel = () => {
+    this.setState({
+      text: this.props.location,
+      editing: false,
+    });
+    this.input.blur();
+  };
+
   render() {
     const { canGoBack, canGoForward, onBack, onForward } = this.props;
     return (
@@ -101,6 +110,17 @@ class UrlBar extends Component {
           selectTextOnFocus
           onSubmitEditing={this.handleSubmit}
         />
+        <TouchableOpacity
+          onPress={this.handleCancel}
+          style={[
+            styles.compress,
+            this.state.focused ? styles.compressActive : {},
+          ]}
+        >
+          <View style={styles.button}>
+            <Icon name="compress" style={styles.icon} />
+          </View>
+        </TouchableOpacity>
         {this.state.editing &&
           <AutoComplete value={this.state.text} onDone={this.handleDone} />}
       </View>
@@ -118,6 +138,7 @@ const styles = StyleSheet.create({
     shadowOffset: { height: 2 },
     shadowRadius: 1,
     shadowOpacity: 0.2,
+    width: Dimensions.get('window').width,
     zIndex: 100,
   },
   button: {
@@ -129,6 +150,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 5,
+  },
+  compress: {
+    position: 'absolute',
+    right: -45,
+    top: 5,
+  },
+  compressActive: {
+    right: 0,
   },
   icon: {
     color: '#555',
@@ -151,7 +180,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 5,
     left: 5,
-    right: 5,
+    right: 50,
     bottom: 5,
     height: '100%',
   },

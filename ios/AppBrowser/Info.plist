@@ -58,6 +58,8 @@
 	</array>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>NSCameraUsageDescription</key>
+	<string>For pictures and shit</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>

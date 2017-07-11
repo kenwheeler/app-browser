@@ -36,7 +36,7 @@ class WebViewWrapper extends Component {
   handleNavigation = data => {
     if (data.loading === false) {
       this.props.dispatch(updateLocation(data.url));
-      this.props.dispatch(updateHistory(data.url));
+      this.props.dispatch(updateHistory({ title: data.title, url: data.url }));
       this.props.dispatch(updateBackForward(data));
     }
   };

@@ -70,10 +70,10 @@ export function updateLocation(url) {
   };
 }
 
-export function updateHistory(url) {
+export function updateHistory(data) {
   return {
     type: UPDATE_HISTORY,
-    data: url,
+    data,
   };
 }
 

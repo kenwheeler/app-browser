@@ -8,6 +8,8 @@ import { bootstrapHistory } from './redux/modules/app';
 
 let store = createStore();
 
+console.disableYellowBox = true;
+
 export default class Root extends Component {
   async componentWillMount() {
     let history = await AsyncStorage.getItem('@AppBrowser:history');

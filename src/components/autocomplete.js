@@ -14,35 +14,46 @@ import { updateURL, updateLocation } from '../redux/modules/app';
 
 class AutoComplete extends Component {
   handlePress = item => {
-    this.props.dispatch(updateURL(item));
-    this.props.dispatch(updateLocation(item));
+    this.props.dispatch(updateURL(item.url));
+    this.props.dispatch(updateLocation(item.url));
     this.props.onDone();
   };
 
   renderItem = ({ item }) => {
     return (
-      <TouchableOpacity key={item} onPress={this.handlePress.bind(null, item)}>
+      <TouchableOpacity
+        key={item.url}
+        onPress={this.handlePress.bind(null, item)}
+      >
         <View style={styles.item}>
-          <Text>{item}</Text>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.url}>{item.url}</Text>
         </View>
       </TouchableOpacity>
     );
   };
   render() {
     let data = this.props.history;
+    let filterCache = [];
     data = data
-      .filter((value, index, self) => self.indexOf(value) === index)
-      .filter(value => value.indexOf(this.props.value) !== -1);
+      .filter(value => {
+        if (filterCache.indexOf(value.url) === -1) {
+          filterCache.push(value.url);
+          return true;
+        }
+        return false;
+      })
+      .filter(value => value.url.indexOf(this.props.value) !== -1);
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <FlatList
           ItemSeparatorComponent={() => <View style={styles.separator} />}
           keyboardShouldPersistTaps="always"
           data={data}
           renderItem={this.renderItem}
-          keyExtractor={item => item}
+          keyExtractor={item => item.url}
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -53,17 +64,23 @@ const styles = StyleSheet.create({
     top: 50,
     left: 0,
     right: 0,
-    bottom: 0,
-    height: Dimensions.get('window').height - 294,
+    height: Dimensions.get('window').height - 55,
     backgroundColor: 'white',
+    paddingBottom: 228,
   },
   item: {
-    paddingHorizontal: 5,
-    paddingVertical: 20,
+    padding: 15,
+  },
+  title: {
+    color: '#555',
+  },
+  url: {
+    color: '#226622',
+    fontSize: 12,
   },
   separator: {
     height: 1,
-    backgroundColor: '#ddd',
+    backgroundColor: '#eee',
     flex: 1,
   },
 });
